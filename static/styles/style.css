@@ -5,21 +5,38 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: url("/static/styles/images/raindrops-3629132_640.jpg");
-  background-size: cover;
-  background-position: center;
-  color: aliceblue;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+/* Estetään koko sivun ylös/alas scrollaus */
+html, body {
+  overflow: hidden; /* 🔹 Poistaa turhan scrollauksen */
+  height: 100%;
 }
 
+/* Varmistetaan, että body täyttää koko näytön */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 🔹 Pitää kaiken keskellä */
+  padding: 0; /* 🔹 Poistaa ylimääräisen paddingin */
+}
+
+/* Taustakuva ilman scrollausta */
+body {
+  background: url("/static/styles/images/raindrops-3629132_640.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Säädetään .container, jotta se pysyy keskellä */
+.container {
+  max-width: 500px;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 0.6rem;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  position: relative;
+}
 .container h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -87,10 +104,12 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 1.2em;
+  html, body {
+    overflow: hidden; /* 🔹 Poistaa ylös/alas scrollauksen */
   }
+  
   .container {
-    width: 100%;
+    max-width: 90%;
+    padding: 1.5rem;
   }
 }
