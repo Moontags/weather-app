@@ -5,28 +5,23 @@
   box-sizing: border-box;
 }
 
-/* Estetään koko sivun ylös/alas scrollaus */
 html, body {
-  overflow: hidden; /* 🔹 Poistaa turhan scrollauksen */
+  overflow: hidden; 
   height: 100%;
 }
 
-/* Varmistetaan, että body täyttää koko näytön */
 body {
+  font-family: 'Roboto', sans-serif;
+  background: url("/static/styles/images/raindrops-3629132_640.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white; 
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* 🔹 Pitää kaiken keskellä */
-  padding: 0; /* 🔹 Poistaa ylimääräisen paddingin */
+  min-height: 100vh;
+  text-align: center;
 }
 
-/* Taustakuva ilman scrollausta */
-body {
-  background: url("/static/styles/images/raindrops-3629132_640.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* Säädetään .container, jotta se pysyy keskellä */
 .container {
   max-width: 500px;
   width: 90%;
@@ -34,23 +29,12 @@ body {
   padding: 2rem;
   border-radius: 0.6rem;
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-  text-align: center;
   position: relative;
 }
+
 .container h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  padding: 10px auto;
- 
-}
-
-.container {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  border-radius: 0.6rem;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .weather-box {
@@ -98,18 +82,22 @@ button {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 button:hover {
   background: #e68900;
 }
 
 @media (max-width: 768px) {
   html, body {
-    overflow: hidden; /* 🔹 Poistaa ylös/alas scrollauksen */
+    overflow: hidden; 
   }
   
   .container {
     max-width: 90%;
     padding: 1.5rem;
+  }
+
+ 
+  body {
+    color: white;
   }
 }
