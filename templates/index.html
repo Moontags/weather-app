@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <title>Weather App</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Get Weather Conditions</h1>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/weather" method="get" onsubmit="return validateForm()">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required placeholder="Enter city">
+      <button type="submit">Get Weather</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      let city = document.getElementById("city").value.trim();
+      if (city === "") {
+        alert("Please enter a city name!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>
