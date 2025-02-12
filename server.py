@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 from weather import get_current_weather
 from waitress import serve
 
@@ -38,4 +39,6 @@ def weather():
     )
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=8080)
+    from waitress import serve
+    port = int(os.environ.get("PORT", 8080))  # Render tarvitsee porttiasetuksen
+    serve(app, host="0.0.0.0", port=port)
